@@ -1,0 +1,424 @@
+{
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "import": [
+        {
+            "name": "alexa-layouts",
+            "version": "1.0.0"
+        }
+    ],
+    "resources": [
+        {
+            "description": "All page resources",
+            "strings": {
+                "pagesBackground": "https://s3.amazonaws.com/calendaralexaapp/mammals/mammals.png",
+                "pageBackground2":"https://s3.amazonaws.com/calendaralexaapp/mammals/flamingo2.png",
+                "pagesHint": "Mammals"
+            }
+        },
+        {
+            "description": "Page1 resources",
+            "strings": {
+                "page1Title": "Mammals",
+                "page1Text": "Mammals have a back bone and they nourish their young with milk from special mammary glands. Mammals usually have hair and their lower jaw is hinged directly to the skull. Few examples of mammals are an Elephant, Cheetah, Gorilla and Whale. "
+               
+            }
+        },
+        {
+            "description": "Page2 resources",
+            "strings": {
+                "page2Text": " Do you want to know about an Elephant or Gorilla or Whale or a Cheetah? Say 'Elephant' or 'Gorilla' or 'Whale' or 'Cheetah', or say 'animal categories' to go back to the main menu or say stop. ",
+                 "page2Image2": "https://s3.amazonaws.com/calendaralexaapp/mammals/mammal10.png"
+            }
+        },
+        {
+            "description": "Page3 resources",
+            "strings": {
+              "page3Text": "Gorillas share 98.4% of DNA with humans. Mountain Gorillas are endangered species as their numbers are decreasing due to illegal hunting, diseases and deforestation. Whales are the largest mammals on Earth. They donot have hairs except in the fetal stage. ",
+              "page3Image1": "https://s3.amazonaws.com/calendaralexaapp/mammals/mammal4.png",
+               "page3Image2": "https://s3.amazonaws.com/calendaralexaapp/mammals/mammal5.png"
+            }
+          },
+          {
+              "description": "Page4 resources",
+              "strings": {
+                "page4Text": "Spirit Bears are the rarest bears on Earth, with population of a few 100. They are found in the rainforest of British Colombia. By genus and species, it is the American black bear. A Sea Otter's usually live in Pacific Ocean Water's. They are usually larger than a river Otter. They even sleep in the sea. ",
+                "page4Text1": "Spirit Bears are the rarest bears on Earth. They are found in the rainforest of British Colombia. By genus and species, it is the American black bear. A Sea Otter's usually live in Pacific Ocean Water's. They even sleep in the sea. ",
+                "page4Image1": "https://s3.amazonaws.com/calendaralexaapp/mammals/mammal6.png",
+                 "page4Image2": "https://s3.amazonaws.com/calendaralexaapp/mammals/mammal7.png"
+            }
+        },
+        {
+            "description": "Stock color for the light theme",
+            "colors": {
+                "colorTextPrimary": "#000000"
+            }
+        },
+        {
+            "description": "Stock color for the dark theme",
+            "when": "${viewport.theme == 'dark'}",
+            "colors": {
+                "colorTextPrimary": "#000000"
+            }
+        },
+        {
+            "description": "Standard font sizes",
+            "dimensions": {
+                "textSizeBody": 50,
+                "textSizePrimary": 20,
+                "textSizeSecondary": 20,
+                "textSizeSecondaryHint": 25
+            }
+        },
+        {
+            "description": "Common spacing values",
+            "dimensions": {
+                "spacingThin": 6,
+                "spacingSmall": 12,
+                "spacingMedium": 24,
+                "spacingLarge": 48,
+                "spacingExtraLarge": 72
+            }
+        },
+        {
+            "description": "Common margins and padding",
+            "dimensions": {
+                "marginTop": 40,
+                "marginLeft": 40,
+                "marginRight": 40,
+                "marginBottom": 40
+            }
+        }
+    ],
+    "styles": {
+        "textStyleBase": {
+            "description": "Base font description; set color and core font family",
+            "values": [
+                {
+                    "color": "@colorTextPrimary",
+                "fontFamily": "Amazon Ember"
+                }
+            ]
+        },
+        "textStyleBase0": {
+            "description": "Thin version of basic font",
+            "extend": "textStyleBase",
+            "values": {
+                "fontWeight": "500"
+            }
+        },
+        "textStyleBase1": {
+            "description": "Light version of basic font",
+            "extend": "textStyleBase",
+            "values": {
+                "fontWeight": "500"
+            }
+        },
+        "mixinBody": {
+            "values": {
+                "fontSize": "@textSizeBody"
+            }
+        },
+        "mixinPrimary": {
+            "values": {
+                "fontSize": "@textSizePrimary"
+            }
+        },
+        "mixinSecondary": {
+            "values": {
+                "fontSize": "@textSizeSecondary"
+            }
+        },
+        "textStylePrimary": {
+            "extend": [
+                "textStyleBase1",
+                "mixinPrimary"
+            ]
+        },
+        "textStyleSecondary": {
+            "extend": [
+                "textStyleBase0",
+                "mixinSecondary"
+            ]
+        },
+        "textStyleBody": {
+            "extend": [
+                "textStyleBase1",
+                "mixinBody"
+            ]
+        },
+        "textStyleSecondaryHint": {
+            "values": {
+                "fontFamily": "Bookerly",
+                "fontStyle": "italic",
+                "fontSize": "@textSizeSecondaryHint",
+                "color": "@colorTextPrimary"
+            }
+        }
+    },
+    "layouts": {
+        "Page1": {
+            "parameters": [
+                 {
+                  "name": "hint",
+                  "type": "string"
+              }
+            ],
+            "items": [
+                {
+                    "when": "${viewport.shape == 'round'}",
+                    "type": "Container",
+                    "direction": "column",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "source": "@pagesBackground",
+                            "scale": "best-fill",
+                            "width": "100vw",
+                            "height": "100vh",
+                            "position": "absolute",
+                            "scrim": true
+                        },
+                        {
+                            "type": "AlexaHeader",
+                          
+                            "headerAttributionImage": "@pagesLogo"
+                        },
+                        {
+                            "type": "Frame",
+                            "width": "100vw",
+                            "height": "100vh",
+                            "paddingLeft": "@marginLeft",
+                            "paddingRight": "@marginRight",
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                            "items": [
+                                {
+                                    "type": "Text",
+                                    "id":"amphitext",
+                                    "text": "@page1Text",
+                                    "speech":"@page1Text",
+                                    "size": "@textSizeBody",
+                                    "style": "textStyleBody",
+                                    "align": "center",
+                                    "fontSize": "3.5vw"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "source": "@pagesBackground",
+                            "scale": "best-fill",
+                            "width": "100vw",
+                            "height": "100vh",
+                            "position": "absolute"
+                        },
+                        {
+                            "type": "Frame",
+                            "width": "100vw",
+                            "height": "90vh",
+                            "paddingLeft": "@marginLeft",
+                            "paddingRight": "@marginRight",
+                            "paddingTop":"50",
+                            "paddingBottom": "120",
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                            "items": [
+                                {
+                                    "type": "Text",
+                                    "id":"amphitext",
+                                    "text": "@page1Text",
+                                    "speech":"@page1Text",
+                                     "size": "@textSizeBody",
+                                     "style": "textStyleBody",
+                                     "fontSize": "3.4vw"
+                                }
+                            ]
+                        },
+                         {
+                                    "type": "AlexaFooter",
+                                    "footerHint": "${payload.MammalTemplateData.properties.hintString}",
+                                    "colorTextPrimary":"#000000"
+                         }
+                    ]
+                }
+            ]
+        },
+        "Page2": {
+          "parameters": [
+              {
+                  "name": "hint",
+                  "type": "string"
+              }
+          ],
+          "items": [
+              {
+                  "when": "${viewport.shape == 'round'}",
+                  "type": "Container",
+                  "direction": "column",
+                  "width": "100vw",
+                  "height": "100vh",
+                  "items": [
+                      {
+                          "type": "Image",
+                          "source": "@pageBackground2",
+                          "position": "absolute",
+                          "width": "100vw",
+                          "height": "100vh",
+                          "scale": "best-fill"
+                      },
+                      {
+                                "type": "Text",
+                                  "id":"amphitext",
+                                  "text": "@page2Text",
+                                  "speech":"@page2Text",
+                                  "paddingTop":"25vw",
+                                  "paddingLeft":"@marginLeft",
+                                  "paddingRight":"@marginRight",
+                                   "size": "@textSizeBody",
+                                  "style": "textStyleBody",
+                                  "align": "center",
+                                  "fontSize": "3.5vw"
+
+                      },
+                      {
+                          "type": "TouchWrapper",
+                          "width": "100vw",
+                          "height": "15vh",
+                          "items": {
+                                "type": "Image",
+                                "source": "@page2Image2",
+                                "width": "90vh",
+                                "height": "30vh",
+                                "align":"center"
+                      },
+                      "onPress": {
+                                             "type": "SendEvent",
+                                             "arguments": [
+                                             "mammalsound"
+                                                ]
+                            }
+                      }
+                  ]
+              },
+              {
+                  "type": "Container",
+                  "width": "100vw",
+                  "height": "100vh",
+                  "items": [
+                      {
+                          "type": "Image",
+                          "source": "@pageBackground2",
+                          "position": "absolute",
+                          "width": "100vw",
+                          "height": "100vh",
+                          "scale": "best-fill"
+                      },
+
+                      {
+                          "type": "Container",
+                          "height": "100vh",
+                          "width": "100vw",
+                          "paddingRight": "@marginRight",
+                          "paddingBottom": "@marginBottom",
+                          "items": [
+                              {
+                              "type": "Text",
+                              "id":"amphitext",
+                                  "text": "@page2Text",
+                                  "speech":"@page2Text",
+                                   "size": "@textSizeBody",
+                                   "paddingLeft": "@marginLeft",
+                                   "paddingTop":"25vh",
+                                   "style": "textStyleBody",
+                                   "fontSize": "3.5vw"
+                              },
+                              {
+                               "type": "Frame",
+                               "height": "75vh",
+                               "width": "100vw",
+                               "direction":"row",
+
+                               "paddingBottom": "@marginBottom",
+                                  "items": [
+                                      {
+                                      "type": "TouchWrapper",
+                                      "width": "100vw",
+                                      "height": "15vh",
+                                     "items": {
+                                          "type": "Image",
+                                          "width": "90vw",
+                                          "height": "35vh",
+                                           "source": "@page2Image2",
+                                           "scale": "best-fit",
+                                          "align": "center"
+                                      },
+                                      "onPress": {
+                                                     "type": "SendEvent",
+                                                    "arguments": [
+                                                     "mammalsound"
+                                                      ]
+                                                 }
+                                      }
+                                 ]
+                              }
+                          ]
+
+                      }
+                      
+                  ]
+              }
+          ]
+      },
+        
+        "MyPager": {
+            "parameters": [
+                {
+                    "name": "hint",
+                    "type": "string"
+                }
+            ],
+            "items": [
+                {
+                    "type": "Pager",
+                    "id": "pagerComponentId",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "items": [
+                        {
+                            "type": "Page1",
+                            "hint": "${hint}"
+
+                        },
+                        {
+                            "type": "Page2",
+                            "hint": "${hint}"
+                        }
+                        
+                    ]
+                }
+            ]
+        }
+    },
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "MyPager",
+                "hint": "${payload.MammalTemplateData.properties.hintString}"
+            }
+        ]
+    }
+}

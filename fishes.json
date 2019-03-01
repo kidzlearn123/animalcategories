@@ -1,0 +1,433 @@
+{
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "import": [
+        {
+            "name": "alexa-layouts",
+            "version": "1.0.0"
+        }
+    ],
+    "resources": [
+        {
+            "description": "All page resources",
+            "strings": {
+                "pagesBackground": "https://s3.amazonaws.com/calendaralexaapp/fishes/fishes.png",
+                "pageBackground2":"https://s3.amazonaws.com/calendaralexaapp/mammals/flamingo2.png",
+                "pagesHint": "Fishes"
+            }
+        },
+        {
+            "description": "Page1 resources",
+            "strings": {
+                "page1Title": "Fishes",
+                "page1Text": "Fishes are vertebrates that have gills, fins and scales. Fishes are cold blooded and have lateral lines to detect water currents and electricity. Fishes breathe through their gills. Fishes usually lay eggs without shell under water. Few examples of fishes are Seahorse, Salmon, Shark and Manta Ray. "
+            }
+        },
+        {
+            "description": "Page2 resources",
+            "strings": {
+                "page2Text": " Do you want to know about Seahorse or Salmon or Shark or Mantaray? Say 'Seahorse' or 'Salmon' or 'Shark' or 'Mantaray', or say 'animal categories' to go back to the main menu or say stop. ",
+                 "page2Image2": "https://s3.amazonaws.com/calendaralexaapp/fishes/fish10.png"
+            }
+        },
+        {
+            "description": "Page3 resources",
+            "strings": {
+              "page3Text": "Toads are short, fat and have long but non webbed hind legs. A toads skin is bumpy and covered in warts. A toad take small hops.  Salamanders are usually short, four legged and moist skinned animals. Many salamanders have camouflage ability. Most salamanders hide during day and feed by night. ",
+              "page3Image1": "https://s3.amazonaws.com/calendaralexaapp/amphibians/amphibian2.png",
+               "page3Image2": "https://s3.amazonaws.com/calendaralexaapp/amphibians/amphibian5.png"
+            }
+          },
+          {
+              "description": "Page4 resources",
+              "strings": {
+                "page4Text": "Newt's have rougher skin than a salamander with few warts. Newts can regenerate the body parts including eyes, spinal cord, intestine and even heart. Salamanders and Newts have the ability to produce toxins from their skin to avaoid predators. Say 'animal categories' to go back or choose a different animal category.",
+                "page4Text1": "Newt's have rougher skin than a salamander with few warts. Newts can regenerate the body parts including eyes, spinal cord, intestine and even heart. Salamanders and Newts have the ability to produce toxins from their skin to avaoid predators. Say 'animal categories' to go back or choose a different animal category.",
+
+                 "page4Image2": "https://s3.amazonaws.com/calendaralexaapp/amphibians/amphibian5.png"
+            }
+        },
+        {
+            "description": "Stock color for the light theme",
+            "colors": {
+                "colorTextPrimary": "#000000"
+            }
+        },
+        {
+            "description": "Stock color for the dark theme",
+            "when": "${viewport.theme == 'dark'}",
+            "colors": {
+                "colorTextPrimary": "#000000"
+            }
+        },
+        {
+            "description": "Standard font sizes",
+            "dimensions": {
+                "textSizeBody": 50,
+                "textSizePrimary": 20,
+                "textSizeSecondary": 20,
+                "textSizeSecondaryHint": 25
+            }
+        },
+        {
+            "description": "Common spacing values",
+            "dimensions": {
+                "spacingThin": 6,
+                "spacingSmall": 12,
+                "spacingMedium": 24,
+                "spacingLarge": 48,
+                "spacingExtraLarge": 72
+            }
+        },
+        {
+            "description": "Common margins and padding",
+            "dimensions": {
+                "marginTop": 40,
+                "marginLeft": 40,
+                "marginRight": 40,
+                "marginBottom": 40
+            }
+        }
+    ],
+    "styles": {
+        "textStyleBase": {
+            "description": "Base font description; set color and core font family",
+            "values": [
+                {
+                    "color": "@colorTextPrimary",
+                "fontFamily": "Amazon Ember"
+                }
+            ]
+        },
+        "textStyleBase0": {
+            "description": "Thin version of basic font",
+            "extend": "textStyleBase",
+            "values": {
+                "fontWeight": "500"
+            }
+        },
+        "textStyleBase1": {
+            "description": "Light version of basic font",
+            "extend": "textStyleBase",
+            "values": {
+                "fontWeight": "500"
+            }
+        },
+        "mixinBody": {
+            "values": {
+                "fontSize": "@textSizeBody"
+            }
+        },
+        "mixinPrimary": {
+            "values": {
+                "fontSize": "@textSizePrimary"
+            }
+        },
+        "mixinSecondary": {
+            "values": {
+                "fontSize": "@textSizeSecondary"
+            }
+        },
+        "textStylePrimary": {
+            "extend": [
+                "textStyleBase1",
+                "mixinPrimary"
+            ]
+        },
+        "textStyleSecondary": {
+            "extend": [
+                "textStyleBase0",
+                "mixinSecondary"
+            ]
+        },
+        "textStyleBody": {
+            "extend": [
+                "textStyleBase1",
+                "mixinBody"
+            ]
+        },
+        "textStyleSecondaryHint": {
+            "values": {
+                "fontFamily": "Bookerly",
+                "fontStyle": "italic",
+                "fontSize": "@textSizeSecondaryHint",
+                "color": "@colorTextPrimary"
+            }
+        }
+    },
+    "layouts": {
+        "Page1": {
+            "parameters": [
+                {
+                    "name": "hint",
+                    "type": "string"
+                }
+            ],
+            "items": [
+                {
+                    "when": "${viewport.shape == 'round'}",
+                    "type": "Container",
+                    "direction": "column",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "source": "https://s3.amazonaws.com/calendaralexaapp/fishes/fishes1.png",
+                            "scale": "best-fill",
+                            "width": "100vw",
+                            "height": "100vh",
+                            "position": "absolute",
+                            "scrim": true
+                        },
+                        {
+                            "type": "AlexaHeader",
+                          
+                            "headerAttributionImage": "@pagesLogo"
+                        },
+                        {
+                            "type": "Frame",
+                            "width": "100vw",
+                            "height": "100vh",
+                            "paddingLeft": "@marginLeft",
+                            "paddingRight": "@marginRight",
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                            "items": [
+                                {
+                                    "type": "Text",
+                                    "id":"amphitext",
+                                    "text": "@page1Text",
+                                    "speech":"@page1Text",
+                                    "size": "@textSizeBody",
+                                    "style": "textStyleBody",
+                                    "align": "center",
+                                    "fontSize": "3.5vw"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "source": "@pagesBackground",
+                            "scale": "best-fill",
+                            "width": "100vw",
+                            "height": "100vh",
+                            "position": "absolute"
+                        },
+                        {
+                            "type": "AlexaHeader",
+                           
+                            "headerAttributionImage": "@pagesLogo"
+                        },
+                        {
+                            "type": "Frame",
+                            "width": "100vw",
+                            "height": "75vh",
+                            "paddingLeft": "@marginLeft",
+                            "paddingRight": "@marginRight",
+                            "paddingBottom": "120",
+                            "paddingTop":"30",
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                            "items": [
+                                {
+                                    "type": "Text",
+                                    "id":"amphitext",
+                                    "text": "@page1Text",
+                                    "speech":"@page1Text",
+                                     "size": "@textSizeBody",
+                                     "style": "textStyleBody",
+                                     "fontSize": "3.4vw"
+                                }
+                            ]
+                        },
+                        {
+                                    "type": "AlexaFooter",
+                                    "footerHint": "${payload.FishTemplateData.properties.hintString}",
+                                    "colorTextPrimary":"#000000"
+                         }
+                    ]
+                }
+            ]
+        },
+        "Page2": {
+          "parameters": [
+              {
+                  "name": "hint",
+                  "type": "string"
+              }
+          ],
+          "items": [
+              {
+                  "when": "${viewport.shape == 'round'}",
+                  "type": "Container",
+                  "direction": "column",
+                  "width": "100vw",
+                  "height": "100vh",
+                  "items": [
+                      {
+                          "type": "Image",
+                          "source": "@pageBackground2",
+                          "position": "absolute",
+                          "width": "100vw",
+                          "height": "100vh",
+                          "scale": "best-fill"
+                      },
+                      {
+                                "type": "Text",
+                                  "id":"amphitext",
+                                  "text": "@page2Text",
+                                  "speech":"@page2Text",
+                                  "paddingTop":"25vw",
+                                  "paddingLeft":"@marginLeft",
+                                  "paddingRight":"@marginRight",
+                                   "size": "@textSizeBody",
+                                  "style": "textStyleBody",
+                                  "align": "center",
+                                  "fontSize": "3.5vw"
+
+                      },
+                      {
+                          "type": "TouchWrapper",
+                          "width": "100vw",
+                          "height": "15vh",
+                          "items": {
+                                "type": "Image",
+                                "source": "@page2Image2",
+                                "paddingLeft":"@marginLeft",
+                                "width": "95vw",
+                                "height": "35vh",
+                                "align":"center"
+                            },
+                            "onPress": {
+                                             "type": "SendEvent",
+                                             "arguments": [
+                                             "fishessound"
+                                                ]
+                            }
+                      }
+                  ]
+              },
+              {
+                  "type": "Container",
+                  "width": "100vw",
+                  "height": "100vh",
+                  "items": [
+                      {
+                          "type": "Image",
+                          "source": "@pageBackground2",
+                          "position": "absolute",
+                          "width": "100vw",
+                          "height": "100vh",
+                          "scale": "best-fill"
+                      },
+
+                      {
+                          "type": "Container",
+                          "height": "100vh",
+                          "width": "100vw",
+                          "paddingRight": "@marginRight",
+                          "paddingBottom": "@marginBottom",
+                          "items": [
+                              {
+                              "type": "Text",
+                              "id":"amphitext",
+                                  "text": "@page2Text",
+                                  "speech":"@page2Text",
+                                   "size": "@textSizeBody",
+                                   "paddingLeft": "@marginLeft",
+                                   "paddingTop":"25vh",
+                                   "style": "textStyleBody",
+                                   "fontSize": "3.5vw"
+                              },
+                              {
+                               "type": "Frame",
+                               "height": "75vw",
+                               "width": "100vw",
+                               "direction":"row",
+
+                               "paddingBottom": "@marginBottom",
+                                  "items": [
+                                      {
+                                          "type": "TouchWrapper",
+                                            "width": "100vw",
+                                            "height": "15vh",
+                                        "items": {
+                                          "type": "Image",
+                                          "width": "90vw",
+                                          "height": "40vh",
+
+                                           "source": "@page2Image2",
+                                           "scale": "best-fit",
+                                          "align": "center"
+                                      },
+                                      "onPress": {
+                                                     "type": "SendEvent",
+                                                    "arguments": [
+                                                     "fishessound"
+                                                      ]
+                                                 }
+                                      }
+                              ]
+                              }
+                          ]
+
+                      },
+                      {
+                          "type": "AlexaFooter",
+                          "footerHint": "${hint}"
+                      }
+                  ]
+              }
+          ]
+      },
+        
+        "MyPager": {
+            "parameters": [
+                {
+                    "name": "hint",
+                    "type": "string"
+                }
+            ],
+            "items": [
+                {
+                    "type": "Pager",
+                    "id": "pagerComponentId",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "items": [
+                        {
+                            "type": "Page1",
+                            "hint": "page1Text"
+
+                        },
+                        {
+                            "type": "Page2",
+                            "hint": "page2Text"
+                        }
+                        
+                    ]
+                }
+            ]
+        }
+    },
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "MyPager",
+                "hint": "${payload.pagerTemplateData.properties.hintString}"
+            }
+        ]
+    }
+}
